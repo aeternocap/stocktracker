@@ -1,0 +1,28 @@
+= form_for @stock do |f|
+  - if @stock.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@stock.errors.count, "error")} prohibited this stock from being saved:"
+      %ul
+        - @stock.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :symbol
+    = f.text_field :symbol
+  .field
+    = f.label :sector
+    = f.text_field :sector
+  .field
+    = f.label :price
+    = f.text_field :price
+  .field
+    = f.label :market_cap
+    = f.text_field :market_cap
+  .field
+    = f.label :stock_exchange
+    = f.text_field :stock_exchange
+  .actions
+    = f.submit 'Save'

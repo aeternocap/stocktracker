@@ -1,0 +1,29 @@
+%h1 Listing stocks
+
+%table
+  %tr
+    %th Name
+    %th Symbol
+    %th Sector
+    %th Price
+    %th Market cap
+    %th Stock exchange
+    %th
+    %th
+    %th
+
+  - @stocks.each do |stock|
+    %tr
+      %td= stock.name
+      %td= stock.symbol
+      %td= stock.sector
+      %td= stock.price
+      %td= stock.market_cap
+      %td= stock.stock_exchange
+      %td= link_to 'Show', stock
+      %td= link_to 'Edit', edit_stock_path(stock)
+      %td= link_to 'Destroy', stock, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Stock', new_stock_path
