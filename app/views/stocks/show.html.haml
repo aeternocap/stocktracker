@@ -18,6 +18,36 @@
 %p
   %b Stock exchange:
   = @stock.stock_exchange
+%p
+  %b Last Trade Date:
+  = @stock.last_trade_date
+%p
+  %b Previous Last Trade Date:
+  = @stock.previous_last_trade_date
+%p
+  %b 50-day Moving Average:
+  = @stock.fiftyday_moving_average
+%p
+  %b Change from 50-day Moving Average:
+  = @stock.change_from_fiftyday_moving_average
+%p
+  %b Previous Change from 50-day Moving Average:
+  = @stock.previous_change_from_fiftyday_moving_average
+%p
+  %b 50-day Moving Average Inversion:
+  = @stock.fiftyday_moving_average_inversion
+%p
+  %b 200-day Moving Average:
+  = @stock.two_hundredday_moving_average
+%p
+  %b Change from 200-day Moving Average:
+  = @stock.change_from_two_hundredday_moving_average
+%p
+  %b Previous Change from 200-day Moving Average:
+  = @stock.previous_change_from_two_hundredday_moving_average
+%p
+  %b 200-day Moving Average Inversion:
+  = @stock.two_hundredday_moving_average_inversion
 
 = link_to 'Edit', edit_stock_path(@stock)
 \|

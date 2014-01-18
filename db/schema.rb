@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140118174034) do
+ActiveRecord::Schema.define(version: 20140118192339) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,16 @@ ActiveRecord::Schema.define(version: 20140118174034) do
     t.string   "stock_exchange"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.date     "last_trade_date"
+    t.date     "previous_last_trade_date"
+    t.decimal  "fiftyday_moving_average"
+    t.decimal  "two_hundredday_moving_average"
+    t.decimal  "change_from_fiftyday_moving_average"
+    t.decimal  "previous_change_from_fiftyday_moving_average"
+    t.decimal  "change_from_two_hundredday_moving_average"
+    t.decimal  "previous_change_from_two_hundredday_moving_average"
+    t.boolean  "fiftyday_moving_average_inversion"
+    t.boolean  "two_hundredday_moving_average_inversion"
   end
 
 end

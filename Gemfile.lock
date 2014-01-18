@@ -137,6 +137,8 @@ GEM
       ffi (>= 0.5.0)
     rdoc (4.1.1)
       json (~> 1.4)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
     rspec (3.0.0.beta1)
       rspec-core (= 3.0.0.beta1)
       rspec-expectations (= 3.0.0.beta1)
@@ -178,6 +180,9 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (~> 2.8)
+    stock_quote (1.1.2)
+      json
+      rest-client
     terminal-notifier (1.5.1)
     terminal-notifier-guard (1.5.3)
     thin (1.6.1)
@@ -225,6 +230,7 @@ DEPENDENCIES
   rspec-rails (~> 3.0.0.beta)
   sass-rails (~> 4.0.0)
   sdoc
+  stock_quote
   terminal-notifier
   terminal-notifier-guard
   thin
