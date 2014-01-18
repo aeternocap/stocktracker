@@ -30,6 +30,8 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'thin'
 
+gem 'foreman'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
@@ -57,6 +59,10 @@ group :darwin do
   gem 'rb-fsevent', require: false
   gem 'terminal-notifier', require: false
   gem 'terminal-notifier-guard', require: false
+end
+
+group :production do
+  gem 'rails_12factor'
 end
 
 # Use ActiveModel has_secure_password
