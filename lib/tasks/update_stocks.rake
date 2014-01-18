@@ -12,6 +12,7 @@ namespace :stocks do
 
       stock.save
     end
+    puts "Updated stock details"
   end
 
   desc 'Update stock price'
@@ -24,7 +25,7 @@ namespace :stocks do
 
       formatted_last_trade_date = Date.strptime(quote.last_trade_date.to_s, '%m/%d/%Y')
 
-      if formatted_last_trade_date > stock.last_trade_date
+      if (stock.last_trade_date and formatted_last_trade_date > stock.last_trade_date) or stock.last_trade_date.blank?
         stock.price = quote.last_trade_price_only
 
         stock.previous_last_trade_date = stock.last_trade_date
@@ -39,22 +40,22 @@ namespace :stocks do
         stock.previous_change_from_two_hundredday_moving_average = stock.change_from_two_hundredday_moving_average
         stock.change_from_two_hundredday_moving_average = quote.change_from_two_hundredday_moving_average
 
-        if !stock.change_from_fiftyday_moving_average.blank? && !stock.previous_change_from_fiftyday_moving_average.blank?
+        if !stock.change_from_fiftyday_moving_average.blank? and !stock.previous_change_from_fiftyday_moving_average.blank?
           # what to do if one of these equals zero?
-          if stock.change_from_fiftyday_moving_average > 0 && stock.previous_change_from_fiftyday_moving_average > 0
+          if stock.change_from_fiftyday_moving_average > 0 and stock.previous_change_from_fiftyday_moving_average > 0
             stock.fiftyday_moving_average_inversion = false
-          elsif stock.change_from_fiftyday_moving_average < 0 && stock.previous_change_from_fiftyday_moving_average < 0
+          elsif stock.change_from_fiftyday_moving_average < 0 and stock.previous_change_from_fiftyday_moving_average < 0
             stock.fiftyday_moving_average_inversion = false
           else
             stock.fiftyday_moving_average_inversion = true
           end
         end
 
-        if !stock.change_from_two_hundredday_moving_average.blank? && !stock.previous_change_from_two_hundredday_moving_average.blank?
+        if !stock.change_from_two_hundredday_moving_average.blank? and !stock.previous_change_from_two_hundredday_moving_average.blank?
           # what to do if one of these equals zero?
-          if stock.change_from_two_hundredday_moving_average > 0 && stock.previous_change_from_two_hundredday_moving_average > 0
+          if stock.change_from_two_hundredday_moving_average > 0 and stock.previous_change_from_two_hundredday_moving_average > 0
             stock.two_hundredday_moving_average_inversion = false
-          elsif stock.change_from_two_hundredday_moving_average < 0 && stock.previous_change_from_two_hundredday_moving_average < 0
+          elsif stock.change_from_two_hundredday_moving_average < 0 and stock.previous_change_from_two_hundredday_moving_average < 0
             stock.two_hundredday_moving_average_inversion = false
           else
             stock.two_hundredday_moving_average_inversion = true
@@ -64,5 +65,6 @@ namespace :stocks do
         stock.save
       end
     end
+    puts "Updated stock prices"
   end
 end
