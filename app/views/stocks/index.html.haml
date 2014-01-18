@@ -19,6 +19,7 @@
       %th Change from 200-day Moving Average
       %th Previous Change from 200-day Moving Average
       %th 200-day Moving Average Inversion
+      %th Yahoo!
       %th
       %th
 
@@ -41,6 +42,7 @@
         %td= stock.change_from_two_hundredday_moving_average
         %td= stock.previous_change_from_two_hundredday_moving_average
         %td= stock.two_hundredday_moving_average_inversion
+        %td= link_to 'Yahoo', "http://finance.yahoo.com/q?s=#{stock.symbol}", target: '_blank'
         %td= link_to 'Edit', edit_stock_path(stock)
         %td= link_to 'Destroy', stock, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
