@@ -1,4 +1,4 @@
-= form_for @stock do |f|
+= form_for @stock, html: { class: 'form-horizontal' } do |f|
   - if @stock.errors.any?
     #error_explanation
       %h2= "#{pluralize(@stock.errors.count, "error")} prohibited this stock from being saved:"
@@ -6,23 +6,23 @@
         - @stock.errors.full_messages.each do |msg|
           %li= msg
 
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :symbol
-    = f.text_field :symbol
-  .field
-    = f.label :sector
-    = f.text_field :sector
-  .field
-    = f.label :price
-    = f.text_field :price
-  .field
-    = f.label :market_cap
-    = f.text_field :market_cap
-  .field
-    = f.label :stock_exchange
-    = f.text_field :stock_exchange
+  .form-group
+    = f.label :name, class: 'control-label'
+    = f.text_field :name, class: 'form-control'
+  .form-group
+    = f.label :symbol, class: 'control-label'
+    = f.text_field :symbol, class: 'form-control'
+  .form-group
+    = f.label :sector, class: 'control-label'
+    = f.text_field :sector, class: 'form-control'
+  .form-group
+    = f.label :price, class: 'control-label'
+    = f.text_field :price, class: 'form-control'
+  .form-group
+    = f.label :market_cap, class: 'control-label'
+    = f.text_field :market_cap, class: 'form-control'
+  .form-group
+    = f.label :stock_exchange, class: 'control-label'
+    = f.text_field :stock_exchange, class: 'form-control'
   .actions
-    = f.submit 'Save'
+    = f.submit 'Save', class: 'btn btn-primary'
