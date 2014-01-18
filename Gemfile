@@ -40,6 +40,8 @@ gem 'haml-rails'
 
 gem 'stock_quote'
 
+gem 'jquery-datatables-rails'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false

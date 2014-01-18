@@ -1,46 +1,48 @@
 %h1 Stocks
 
-%table.table.table-striped
-  %tr
-    %th Name
-    %th Symbol
-    %th Sector
-    %th Price
-    %th Market cap
-    %th Stock exchange
-    %th Last Trade Date
-    %th Previous Last Trade Date
-    %th 50-day Moving Average
-    %th Change from 50-day Moving Average
-    %th Previous Change from 50-day Moving Average
-    %th 50-day Moving Average Inversion
-    %th 200-day Moving Average
-    %th Change from 200-day Moving Average
-    %th Previous Change from 200-day Moving Average
-    %th 200-day Moving Average Inversion
-    %th
-    %th
-
-  - @stocks.each do |stock|
+%table.table.table-striped.datatable#stocks-list
+  %thead
     %tr
-      %td= stock.name
-      %td= link_to stock.symbol, stock
-      %td= stock.sector
-      %td= stock.price
-      %td= stock.market_cap
-      %td= stock.stock_exchange
-      %td= stock.last_trade_date
-      %td= stock.previous_last_trade_date
-      %td= stock.fiftyday_moving_average
-      %td= stock.change_from_fiftyday_moving_average
-      %td= stock.previous_change_from_fiftyday_moving_average
-      %td= stock.fiftyday_moving_average_inversion
-      %td= stock.two_hundredday_moving_average
-      %td= stock.change_from_two_hundredday_moving_average
-      %td= stock.previous_change_from_two_hundredday_moving_average
-      %td= stock.two_hundredday_moving_average_inversion
-      %td= link_to 'Edit', edit_stock_path(stock)
-      %td= link_to 'Destroy', stock, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %th Name
+      %th Symbol
+      %th Sector
+      %th Price
+      %th Market cap
+      %th Stock exchange
+      %th Last Trade Date
+      %th Previous Last Trade Date
+      %th 50-day Moving Average
+      %th Change from 50-day Moving Average
+      %th Previous Change from 50-day Moving Average
+      %th 50-day Moving Average Inversion
+      %th 200-day Moving Average
+      %th Change from 200-day Moving Average
+      %th Previous Change from 200-day Moving Average
+      %th 200-day Moving Average Inversion
+      %th
+      %th
+
+  %tbody
+    - @stocks.each do |stock|
+      %tr
+        %td= stock.name
+        %td= link_to stock.symbol, stock
+        %td= stock.sector
+        %td= stock.price
+        %td= stock.market_cap
+        %td= stock.stock_exchange
+        %td= stock.last_trade_date
+        %td= stock.previous_last_trade_date
+        %td= stock.fiftyday_moving_average
+        %td= stock.change_from_fiftyday_moving_average
+        %td= stock.previous_change_from_fiftyday_moving_average
+        %td= stock.fiftyday_moving_average_inversion
+        %td= stock.two_hundredday_moving_average
+        %td= stock.change_from_two_hundredday_moving_average
+        %td= stock.previous_change_from_two_hundredday_moving_average
+        %td= stock.two_hundredday_moving_average_inversion
+        %td= link_to 'Edit', edit_stock_path(stock)
+        %td= link_to 'Destroy', stock, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 
