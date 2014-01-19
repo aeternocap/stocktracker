@@ -51,4 +51,6 @@
 
 = link_to 'Edit', edit_stock_path(@stock)
 \|
+= link_to 'Delete', @stock, :method => :delete, :data => { :confirm => 'Are you sure?' }
+\|
 = link_to 'Back', stocks_path
