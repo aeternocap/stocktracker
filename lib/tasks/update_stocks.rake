@@ -6,9 +6,9 @@ namespace :stocks do
 
     @stocks.each do |stock|
       quote = StockQuote::Stock.quote(stock.symbol)
-      stock.name = quote.name if stock.name.empty?
-      stock.market_cap = quote.market_capitalization if stock.market_cap.empty?
-      stock.stock_exchange = quote.stock_exchange if stock.stock_exchange.empty?
+      stock.name = quote.name if stock.name.blank?
+      stock.market_cap = quote.market_capitalization if stock.market_cap.blank?
+      stock.stock_exchange = quote.stock_exchange if stock.stock_exchange.blank?
 
       stock.save
     end
